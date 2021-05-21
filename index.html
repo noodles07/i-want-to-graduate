@@ -228,17 +228,17 @@
                 Kind: 4
             };
 
-            let tasks=[];
+            let sgck_tasks=[];
 
             function loadTasks() {
-                let lastTasks = localStorage.getItem("tasks");
+                let lastTasks = localStorage.getItem("sgck_tasks");
                 if (!lastTasks) 
                     return;
-                tasks = JSON.parse(lastTasks);
-                tasks.forEach(addToList);
+                sgck_tasks = JSON.parse(lastTasks);
+                sgck_tasks.forEach(addToList);
             }
             function saveTasks() {
-                localStorage.setItem("tasks", JSON.stringify(tasks));
+                localStorage.setItem("sgck_tasks", JSON.stringify(sgck_tasks));
             }
             function addToList(task) {
                 let divarr=[];
@@ -259,7 +259,7 @@
                             for(j of divarr){
                                 j.remove();
                             }
-                            tasks =tasks.filter(t => t !== task);
+                            sgck_tasks =sgck_tasks.filter(t => t !== task);
                             saveTasks();
                         });
                     }
@@ -326,7 +326,7 @@
                 };
 
                 // 3. Append the new Task object to tasks
-                tasks.push(task);
+                sgck_tasks.push(task);
                 saveTasks();
 
                 // 4. Create a new task item and attach it to #todo-list.
