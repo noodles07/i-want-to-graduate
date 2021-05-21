@@ -140,49 +140,47 @@
                 type="text"
                 class="form-control"
                 id="task-input"
-                placeholder="과목">
+                placeholder="Subject">
             <input
                 type="text"
                 class="form-control"
                 id="task-input1"
-            placeholder="학점">
+            placeholder="Grade" >
             <input
                 type="text"
                 class="form-control"
                 id="task-input2"
-            placeholder="성적">
+            placeholder="Credit">
             <input
                 type="text"
                 class="form-control"
                 id="task-input3"
-            placeholder="종류">
+            placeholder="Kind">
             <button type="button" id="add" class="btn btn-primary ms-1 text-nowrap">
                 <i class="bi bi-plus"></i>
-                추가</button>
+                Enter</button>
         </div>
 
         <div class="d-flex">
-            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
-                <h3>과목</h3>
-                <div id="subject-list"></div>
-                    <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
-                
-            </div>
-            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
-                <h3>학점</h3>
-                <div id="grade-list"></div>
-                <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
-            </div>
-            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
-                <h3>성적</h3>
-                <div id="credit-list"></div>
-                <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
-            </div>
-            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
-                <h3>종류</h3>
-                <div id="kind-list"></div>
-                <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
-            </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" width="50%">Subject</th>
+                    <th scope="col" width="10%">Grade</th>
+                    <th scope="col" width="10%">Credit</th>
+                    <th scope="col">Kind</th>
+                  </tr>
+                </thead>
+                <tbody id="body">
+                  <tr>
+                    <td><div id="subject-list"></div></td>
+                    <td><div id="grade-list"></div></td>
+                    <td><div id="credit-list"></div></td>
+                    <td><div id="kind-list"></div></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
         </div>
     </div>
     </div>
