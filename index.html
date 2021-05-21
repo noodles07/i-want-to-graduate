@@ -134,6 +134,57 @@
             </div>
         </div>
     </div>
+        <div class="container">
+        <div class="d-flex align-items-center mb-2 mt-2">
+            <input
+                type="text"
+                class="form-control"
+                id="task-input"
+                placeholder="과목">
+            <input
+                type="text"
+                class="form-control"
+                id="task-input1"
+            placeholder="학점">
+            <input
+                type="text"
+                class="form-control"
+                id="task-input2"
+            placeholder="성적">
+            <input
+                type="text"
+                class="form-control"
+                id="task-input3"
+            placeholder="종류">
+            <button type="button" id="add" class="btn btn-primary ms-1 text-nowrap">
+                <i class="bi bi-plus"></i>
+                추가</button>
+        </div>
+
+        <div class="d-flex">
+            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
+                <h3>과목</h3>
+                <div id="subject-list"></div>
+                    <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
+                
+            </div>
+            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
+                <h3>학점</h3>
+                <div id="grade-list"></div>
+                <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
+            </div>
+            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
+                <h3>성적</h3>
+                <div id="credit-list"></div>
+                <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
+            </div>
+            <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
+                <h3>종류</h3>
+                <div id="kind-list"></div>
+                <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center"></div>
+            </div>
+        </div>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
@@ -141,6 +192,123 @@
     
     <script>
         /*JSCode*/
+        const Type = {
+                Subject: 1,
+                Grade: 2,
+                Credit: 3,
+                Kind: 4
+            };
+
+            let tasks=[];
+
+            function loadTasks() {
+                let lastTasks = localStorage.getItem("tasks");
+                if (!lastTasks) 
+                    return;
+                tasks = JSON.parse(lastTasks);
+                tasks.forEach(addToList);
+            }
+            function saveTasks() {
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+            }
+            function addToList(task) {
+                let divarr=[];
+                for(i of task){
+                    let div = document.createElement("div");
+                    div.className = "task bg-light p-1 rounded-2 ps-2 d-flex align-items-center";
+                    divarr.push(div);
+                    let span = document.createElement("span");
+                    span.className = "me-auto";
+                    span.textContent = i.text;
+                    div.appendChild(span);
+                    if(i.type===Type.Kind){
+                        let buttonRemove = document.createElement("button");
+                        buttonRemove.className = "btn btn-sm btn-danger";
+                        buttonRemove.innerHTML = '<i class="bi bi-x"></i>';
+                        div.appendChild(buttonRemove);
+                        buttonRemove.addEventListener("click", () => {
+                            for(j of divarr){
+                                j.remove();
+                            }
+                            tasks =tasks.filter(t => t !== task);
+                            saveTasks();
+                        });
+                    }
+                    if(i.type===Type.Subject){
+                        let list = document.querySelector("#subject-list");
+                        list.appendChild(div);
+                    }
+                    else if(i.type===Type.Grade){
+                        let list = document.querySelector("#grade-list");
+                        list.appendChild(div);
+                    }
+                    else if(i.type===Type.Credit){
+                        let list = document.querySelector("#credit-list");
+                        list.appendChild(div);
+                    }
+                    else{
+                        let list = document.querySelector("#kind-list");
+                        list.appendChild(div);
+                    }
+                }
+            }
+
+            window.addEventListener("load", () => {
+                loadTasks();
+            });
+
+            let button = document.querySelector("#add");
+            button.addEventListener("click", () => {
+                // 1. Read the text in #task-input.
+                let input = document.querySelector("#task-input");
+                let input1 = document.querySelector("#task-input1");
+                let input2 = document.querySelector("#task-input2");
+                let input3 = document.querySelector("#task-input3");
+                let text = input.value;
+                let text1 = input1.value;
+                let text2 = input2.value;
+                let text3 = input3.value;
+
+                if (!text.length) 
+                    return;
+                if (!text1.length) 
+                    return;
+                if (!text2.length) 
+                    return;
+                if (!text3.length) 
+                    return;
+                // 2. Create a new Task object.
+                let task=[];
+                task[0] = {
+                    text: text,
+                    type: Type.Subject
+                };
+                task[1] = {
+                    text: text1,
+                    type: Type.Grade
+                };
+                task[2] = {
+                    text: text2,
+                    type: Type.Credit
+                };
+                task[3] = {
+                    text: text3,
+                    type: Type.Kind
+                };
+
+                // 3. Append the new Task object to tasks
+                tasks.push(task);
+                saveTasks();
+
+                // 4. Create a new task item and attach it to #todo-list.
+                addToList(task);
+
+                // 5. Clear #task-input.
+                input.value = "";
+                input1.value = "";
+                input2.value = "";
+                input3.value = "";
+            });
     </script>
 </body>
 </html>
