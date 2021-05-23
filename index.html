@@ -20,70 +20,63 @@
 <body>
     <!--HTMLCode-->
     <div id="wrapper">
-        <h2><strong>I Want To Graduate!</strong></h2>
-        <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title"><strong>What is IWTG?</strong></h5>
-              <p class="card-text">IWTG is a web application for undergraduates who need help visualizing 
-                their former achievements in the school to get a sense of their present 
-                status in obtaining their only goal and desire that is, graduating.</p>
-            </div>
-        </div>
+    <h1>I Want To Graduate!</h1>
+        <p><strong>What is IWTG? :</strong> IWTG is a web application for undergraduates who need help visualizing 
+            their former achievements in the school to get a sense of their present 
+            status in obtaining their only goal and desire that is, graduating. </p>
     <div class="container">
         <div class="mb-3">
-            <h4><strong>Input name and student ID</strong></h4>
-            <div class="d-flex align-items-center mb-2 mt-2">
-                <input type="text"class="form-control"id="exampleFormControlInput1"placeholder="Name">
-                <input type="text"class="form-control"id="exampleFormControlInput2"placeholder="Student ID">
-                <button type="button"class="btn btn-dark">Enter</button>
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Select your major
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <li><button type="button" class="btn btn-white">Software</button></li>
-                    <li><button type="button" class="btn btn-white">Medical</button></li>
-                    <li><button type="button" class="btn btn-white">Business</button></li>
-                    </ul>
-                </div>
-            </div>
+            <label for="exampleFormControlInput1"class="form-label">Input name and student ID</label>
+            <table>
+                <tr>
+                    <td><input type="text"class="form-control"id="exampleFormControlInput1"placeholder="Name"></td>
+                    <td><button type="button"class="btn btn-dark">Enter</button></td>
+                </tr>
+                <tr>
+                    <td><input type="text"class="form-control"id="exampleFormControlInput2"placeholder="Student ID"></td>
+                    <td><button type="button"class="btn btn-dark">Enter</button></td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="container">
         <div class="d-flex mb-3">
-            <div class="container flex-grow-1">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width:30%">Name</th>
-                            <th scope="col" style="width:20%">Student ID</th>
-                            <th scope="col" style="width:20%">Major</th>
-                        </tr>
-                    </thread>
-                    <tbody>
-                        <tr>
-                          <td><div class="name">-</div></td>
-                          <td><div class="id">-</div></td>
-                          <td><div class="major">-</div></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="flex-grow-1">
+                <h3>Name</h3>
+                <div id="name"></div>
+            </div>
+            <div class="flex-grow-1">
+                <h3>Student ID</h3>
+                <div id="ID"></div>
+            </div>
+            <div class="flex-grow-1">
+                <h3>Major</h3>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="majorselect" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Select your major
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <li><button id="Software" type="button" class="btn btn-white">Software</button></li>
+                <li><button id="Medical" type="button" class="btn btn-white">Medical</button></li>
+                <li><button id="Business" type="button" class="btn btn-white">Business</button></li>
+                </ul>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="d-flex mb-3">
             <div class="flex-grow-1">
-                <h4><strong>Choose the type of class and credit<strong></h4>
+                <h3>Choose the type of class and credit</h3>
             </div>
             <div class="btn-group flex-grow-1" role="group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Type of class
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><button type="button" class="btn btn-white">Core class</button></li>
-                <li><button type="button" class="btn btn-white">Elective class</button></li>
-                <li><button type="button" class="btn btn-white">Practice class</button></li>
+                <li><button id="Core"type="button" class="btn btn-white">Core class</button></li>
+                <li><button id="Elective"type="button" class="btn btn-white">Elective class</button></li>
+                <li><button id="Practice"type="button" class="btn btn-white">Practice class</button></li>
                 </ul>
             </div>
             <div class="btn-group flex-grow-1" role="group">
@@ -91,9 +84,9 @@
                 Credit
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><button type="button" class="btn btn-white">1</button></li>
-                <li><button type="button" class="btn btn-white">2</button></li>
-                <li><button type="button" class="btn btn-white">3</button></li>
+                <li><button id="one" type="button" class="btn btn-white">1</button></li>
+                <li><button id="two" type="button" class="btn btn-white">2</button></li>
+                <li><button id="three" type="button" class="btn btn-white">3</button></li>
                 </ul>
             </div>
         </div>
@@ -108,17 +101,17 @@
                     </thread>
                     <tbody>
                         <tr>
-                          <td><div id="type">-</div></td>
-                          <td><div id="credit">-</div></td>
+                          <td><div id="type"></div></td>
+                          <td><div id="credit"></div></td>
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-outline-dark" style="height:83px">+</button>
+                <button id="tochart" type="button" class="btn btn-outline-dark">+</button>
             </div>
         </div>
         <div>
             <div>
-                <h4><strong>Credit so far</strong></h4>
+                <h3>Credit so far</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -131,9 +124,9 @@
                     <tbody>
                         <tr>
                           <th scope="row">Credits</th>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
+                          <td id="corecredit">0</td>
+                          <td id="electivecredit">0</td>
+                          <td id="practicecredit">0</td>
                         </tr>
                     </tbody>
                 </table>
@@ -162,7 +155,7 @@
                 class="form-control"
                 id="task-input3"
             placeholder="Kind">
-            <button type="button" id="add" class="btn btn-outline-primary ms-1 text-nowrap">
+            <button type="button" id="add" class="btn btn-primary ms-1 text-nowrap">
                 <i class="bi bi-plus"></i>
                 Enter</button>
         </div>
@@ -189,29 +182,31 @@
               </table>
         </div>
      </div>
-        <h4><strong>Graduation Requirements</strong></h4>
+    
+     <button type="button" id="done" class="btn btn-primary ms-1 text-nowrap">Done!</button>
+        <h3>졸업요건</h3>
     <div>
            <table border=1px style="width:100%;" class="table table-bordered">
                    <tr>
-                       <td>Current semester's grades</td>
-                       <td id="current grade">x</td>
+                       <td>현학기 성적</td>
+                       <td id="currentgrade">x</td>
                    </tr>
                    <tr>
-                       <td>Current semester's core class' grades</td>
-                       <td id="current major grade">x</td>
+                       <td>현학기 전공 성적</td>
+                       <td id="currentcoregrade">x</td>
                    </tr>
                    <tr>
-                       <th>Type of class</th>
-                       <th>Credits to take</th>
+                       <th>수업종류</th>
+                       <th>모자란 학점</th>
                    </tr>
                    <tr>
-                       <td>Core</td>
+                       <td>전공</td>
                        <td id="needed major">x</td>
                    </tr> <tr>
-                       <td>Elective</td>
+                       <td>교양</td>
                        <td id="needed elective">x</td>
                    </tr> <tr>
-                       <td>Practice</td>
+                       <td>실습</td>
                        <td id="needed practice">x</td>
                    </tr>
            </table>
@@ -224,8 +219,152 @@
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
         crossorigin="anonymous"></script>
     
-    <script>
+    <script script>
         /*JSCode*/
+        
+        
+        let state='';
+        let corenum=0;
+        let electivenum=0;
+        let practicenum=0;
+        let typecreditdiv=[]
+           let coretype= document.querySelector("#Core");
+            coretype.addEventListener("click", () => {
+        
+             
+               state='core';
+                let div = document.createElement("div");
+                    div.className = "d-flex align-items-center";
+                    typecreditdiv.push(div);
+                    let span = document.createElement("span");
+                    span.className = "me-auto";
+                    span.textContent = "Core";
+                    div.appendChild(span);
+
+             let list=document.querySelector("#type");
+             list.appendChild(div);
+            });
+            let practicetype= document.querySelector("#Practice");
+            practicetype.addEventListener("click", () => {
+            
+              
+                    state='practice';
+                    let div = document.createElement("div");
+                    div.className = "d-flex align-items-center";
+                    typecreditdiv.push(div);
+                    let span = document.createElement("span");
+                    span.className = "me-auto";
+                    span.textContent = "Practice";
+                    div.appendChild(span);
+
+             let list=document.querySelector("#type");
+             list.appendChild(div);
+            });
+            let Electivetype= document.querySelector("#Elective");
+            Electivetype.addEventListener("click", () => {
+               
+             
+                    state='elective';
+                    let div = document.createElement("div");
+                    div.className = "d-flex align-items-center";
+                    typecreditdiv.push(div);
+                    let span = document.createElement("span");
+                    span.className = "me-auto";
+                    span.textContent = "Elective";
+                    div.appendChild(span);
+
+             let list=document.querySelector("#type");
+             list.appendChild(div);
+            });
+            let one= document.querySelector("#one");
+            one.addEventListener("click", () => {
+               if(state==='elective')
+               electivenum=electivenum+1;
+               if(state==='practice')
+               practicenum=practicenum+1;
+               if(state==='core')
+               corenum=corenum+1;
+             
+               
+                    let div = document.createElement("div");
+                    div.className = "d-flex align-items-center";
+                    typecreditdiv.push(div);
+                    let span = document.createElement("span");
+                    span.className = "me-auto";
+                    span.textContent = "1";
+                    div.appendChild(span);
+
+             let list=document.querySelector("#credit");
+           
+             list.appendChild(div);
+            });
+            let two= document.querySelector("#two");
+            two.addEventListener("click", () => {
+                if(state==='elective')
+               electivenum=electivenum+2;
+               if(state==='practice')
+               practicenum=practicenum+2;
+               if(state==='core')
+               corenum=corenum+2;
+             
+               
+                let div = document.createElement("div");
+                    div.className = "d-flex align-items-center";
+                    typecreditdiv.push(div);
+                    let span = document.createElement("span");
+                    span.className = "me-auto";
+                    span.textContent = "2";
+                    div.appendChild(span);
+
+             let list=document.querySelector("#credit");
+             list.appendChild(div);
+            });
+            let three= document.querySelector("#three");
+            three.addEventListener("click", () => {
+                if(state==='elective')
+               electivenum=electivenum+3;
+               if(state==='practice')
+               practicenum=practicenum+3;
+               if(state==='core')
+               corenum=corenum+3;
+               
+             
+               
+                let div = document.createElement("div");
+                    div.className = "d-flex align-items-center";
+                    typecreditdiv.push(div);
+                    let span = document.createElement("span");
+                    span.className = "me-auto";
+                    span.textContent = "3";
+                    div.appendChild(span);
+
+             let list=document.querySelector("#credit");
+             list.appendChild(div);
+            });
+        let tochartb=document.querySelector("#tochart");
+        tochartb.addEventListener("click",()=>{
+        let corecred=document.querySelector("#corecredit");
+        let electivecred=document.querySelector("#electivecredit");
+        let practicecred=document.querySelector("#practicecredit");
+        corecred.textContent=corenum;
+        electivecred.textContent=electivenum;
+        practicecred.textContent=practicenum;
+        for(i of typecreditdiv){
+        i.remove();
+        }
+        
+       
+
+
+
+        })
+        let totalcredit=0;
+        let corecredit=0;
+        let coregrades=[];
+        let grades=[];
+        let corecredits=[];
+        let credits=[];
+
         const Type = {
                 Subject: 1,
                 Grade: 2,
@@ -300,9 +439,27 @@
                 let input3 = document.querySelector("#task-input3");
                 let text = input.value;
                 let text1 = input1.value;
+                grades.push(text1);
                 let text2 = input2.value;
+                totalcredit=totalcredit+parseInt(text2);
+                credits.push(text2);
+               
                 let text3 = input3.value;
+                let correctkind=false;
+                if(text3==='Core'){
+                    corecredit=corecredit+parseInt(text2);
+                    corecredits.push(text2);
+                    coregrades.push(text1);
+                   correctkind=true;
+                }
+                if(text3==='Elective')
+                correctkind=true;
+                if(text3==='Practice')
+                correctkind=true;
 
+
+                if(correctkind===false)
+                  return;
                 if (!text.length) 
                     return;
                 if (!text1.length) 
@@ -311,6 +468,7 @@
                     return;
                 if (!text3.length) 
                     return;
+                
                 // 2. Create a new Task object.
                 let task=[];
                 task[0] = {
@@ -324,6 +482,7 @@
                 task[2] = {
                     text: text2,
                     type: Type.Credit
+                   
                 };
                 task[3] = {
                     text: text3,
@@ -343,6 +502,76 @@
                 input2.value = "";
                 input3.value = "";
             });
+          let done=document.querySelector("#done");
+          done.addEventListener("click",()=>{
+          let finalgrade=gradefinder(totalcredit,grades,credits);
+          let finalcoregrade=gradefinder(corecredit,coregrades,corecredits)
+          let gradechart=document.querySelector("#currentgrade");
+          gradechart.textContent=finalgrade;
+          let coregrade=document.querySelector("#currentcoregrade");
+          coregrade.textContent=finalcoregrade;
+
+
+
+          })
+
+
+
+
+
+
+          function gradefinder(totalcredits, grades,credits) {
+              console.log(totalcredits,grades,credits);
+            let total = 0;
+  for (let i = 0; i < grades.length; i++) {
+   
+    switch (grades[i]) {
+      case "A+":
+        total = total + 4.5*credits[i];
+        break;
+      case "B+":
+        total = total + 3.5*credits[i];
+        break;
+      case "C+":
+        total = total + 2.5*credits[i];
+        break;
+      case "D+":
+        total = total + 1.5*credits[i];
+        break;
+      case "A":
+        total = total + 4.0*credits[i];
+        break;
+      case "B":
+        total = total + 3.0*credits[i];
+        break;
+      case "C":
+        total = total + 2.0*credits[i];
+        break;
+      case "D":
+        total = total + 1*credits[i];
+        break;
+      case "F":
+        break;
+    }
+  }
+  return total / totalcredits;
+}
+let major='';
+    let majorsoftware=document.querySelector("#Software")
+    let majormedical=document.querySelector("#Medical")
+    let majorbusiness=document.querySelector("#Business")
+    majorsoftware.addEventListener("click",()=>{
+      major="Software";
+      majorselect.textContent=major;
+    })
+    majormedical.addEventListener("click",()=>{
+      major="Medical";
+      majorselect.textContent=major;
+    })
+    majorbusiness.addEventListener("click",()=>{
+      major="Business";
+     majorselect.textContent=major;
+    })
     </script>
 </body>
 </html>
